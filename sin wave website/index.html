@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Wave</title>
+    <style>
+        #Sine {
+            border: 5px solid;
+            width: 250px;
+            height: 250px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="SinWave"><div id="Sine" style="margin-top: 0;"></div></div>
+
+    <script>
+        let X = 0;
+        let Y = 0;
+
+        function cordUpdate() {
+            X+=1;
+            Y = (Math.sin(X))+15;
+            document.getElementById("SinWave").innerHTML = `<div id=\"Sine\" style=\"margin-top: ${Y};\"></div>`;
+            // document.getElementById("Sine").getAttribute("style") = `margin-top: ${Y};`
+        }
+        setInterval(cordUpdate, 10);
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Chat</title>
+</head>
+<body>
+    <h1>Real-Time Chat</h1>
+    <div id="chat"></div>
+    <input type="text" id="message" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        var ws = new WebSocket("ws://localhost:8080", "chat-protocol");
+        var chatDiv = document.getElementById("chat");
+        var messageInput = document.getElementById("message");
+
+        ws.onmessage = function(event) {
+            var message = event.data;
+            chatDiv.innerHTML += "<p>" + message + "</p>";
+        };
+
+        function sendMessage() {
+            var message = messageInput.value;
+            ws.send(message);
+            messageInput.value = "";
+        }
+    </script>
+</body>
+</html>
