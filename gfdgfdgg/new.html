@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #Pointer {
+            width: 6em;
+            height: 6em;
+            background: radial-gradient(#e66465, #9198e5);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px #10003633;
+            transition: 0.1s ease-in;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: aqua;">Hi</h1>
+    <div id="Pointer"></div>
+    <script>
+        const Pointer = document.getElementById("Pointer");
+        window.onmousemove = e => {
+            Pointer.animate({
+                left: `${e.clientX}px`,
+                top: `${e.clientY}px`
+            }, { duration: 300, fill: "forwards" });
+        }
+    </script>
+</body>
+</html>

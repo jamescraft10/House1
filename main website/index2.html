@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Clicker</title>
+    <link rel="icon" href="logo.png" type="image/png"> <!--Logo-->
+    <style>
+        body {
+            color: black;
+            background-color: gray;
+        }
+        #Top {
+            text-align: center;
+            font-size: xx-large;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+        #Right {
+            position: absolute;
+            right: 10px;
+            top: 4px;
+            z-index: 100000;
+        }
+        #Left {
+            position: absolute;
+            left: 5%;
+            top: 10%;
+            transform: translate(10% 10%);
+            z-index: 100000;
+        }
+        .Button {
+            font-size: larger;
+            background-color: aqua;
+            border: 4px solid;
+            width: 250px;
+            height: 100px;
+            margin-top: 5px;
+            border-radius: 10px;
+        }
+        .Button:hover {
+            background-color: darkcyan;
+            color: white;
+            border-color: black;
+        }
+        #cursor {
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="Top">
+        Clicker Clicker - Version 0.1
+        <br>
+        Clicks - 0
+        <br>
+        <a href="https://jamescraft.w3spaces.com/">First Page</a>
+    </div>
+    <div id="Right">
+        <button class="Button">Clicker - 0<br>Cost 50<br>Cps - 1</button><br>
+        <button class="Button">Triple Clicker - 0<br>Cost 250<br>Cps - 3</button><br>
+        <button class="Button">Worker - 0<br>Cost 1000<br>Cps - 10</button><br>
+        <button class="Button">24/7 Worker - 0<br>Cost 3000<br>Cps - 30</button><br>
+        <button class="Button">Portal - 0<br>Cost 10000<br>Cps - 100</button><br>
+        <button class="Button">You - 0<br>Cost 1000000<br>Cps - 1000</button><br>
+    </div>
+    <div id="Left">
+        <img src="Clicker.png" id="cursor" onclick="MainClick()">
+    </div>
+    <script>
+        function MainClick() {
+            console.log("Test");
+        }
+    </script>
+</body>
+</html>

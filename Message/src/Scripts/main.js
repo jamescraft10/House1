@@ -1,37 +1,50 @@
-const imageForm = document.getElementById('image-form');
-const imageInput = document.getElementById('image-input');
-const imageContainer = document.getElementById('image-container');
+document.onkeypress = function(evt) {
+  evt = evt || window.event;
+  var charCode = evt.keyCode || evt.which;
+  if(charCode == 92) {
+      Rediret();
+  }
+}
 
-imageForm.addEventListener('submit', (e) => {
+function Rediret() {
+  window.location.href = window.location.href.replace("main", "");
+}
+
+var Name = prompt('Whats Your Name?');
+if (Name == "" || Name == null || Name == undefined) { Name = prompt('Whats Your Name?'); }
+
+var socket = io();
+
+var messages = document.getElementById('messages');
+var form = document.getElementById('form');
+var input = document.getElementById('input');
+
+form.addEventListener('submit', function (e) {
+  if (Name == "" || Name == null || Name == undefined) { Name = prompt('Whats Your Name?'); }
   e.preventDefault();
-
-  const formData = new FormData();
-  formData.append('image', imageInput.files[0]);
-
-  fetch('/upload', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    const imageUrl = data.imageUrl;
-    const imgElement = document.createElement('img');
-    imgElement.src = imageUrl;
-    imageContainer.appendChild(imgElement);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+  if (input.value) {
+    socket.emit("chat message", `${Name}: ${input.value}`);
+    input.value = '';
+  }
 });
 
-const socket = io();
-
-socket.on('image', (imageUrl) => {
-  const imgElement = document.createElement('img');
-  imgElement.src = imageUrl;
-  imageContainer.appendChild(imgElement);
+socket.on("chat message", function (msg) {
+  AddText(msg);
 });
 
-socket.on('chat message', (msg) => {
-  // Handle chat messages as you did before
-});
+function AddText(msg) {
+  var item = document.createElement('li');
+  item.textContent = msg;
+  messages.appendChild(item);
+  Bottom();
+}
+
+function Bottom() {
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+let i = 0;
+if(i == 0) {
+  Bottom();
+  i++;
+}

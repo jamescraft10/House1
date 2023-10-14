@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Clicker</title>
+    <link rel="icon" href="Image.jpeg" type="image/png">
+    <style>
+        body {
+            background-color: gray;
+            color: black;
+        }
+        #title {
+            position: absolute;
+            left:50%;
+            transform: translate(-50%, 0%);
+        }
+        #Clicker {
+            position: absolute;
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+        #ClicksText {
+            position: absolute;
+            left:50%;
+            transform: translate(-50%, 60%);
+        }
+        #Cps {
+            position: absolute;
+            left:50%;
+            transform: translate(-50%, 97%);
+        }
+        #sideBarRight {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            z-index: 100000;
+            border: 5px solid;
+            height: 675px;
+            width: 250px;
+            background-color: white;
+        }
+        #Test1 {
+            background-color: aqua;
+            margin-left: 12px;
+            border: 5px solid;
+            height: 100px;
+            width: 225px;
+        }
+        #TextTest1 {
+            font-size: xx-large;
+            text-align: center;
+            margin-top: 3px;
+        }
+        #Test1:hover {
+            background-color: darkcyan;
+            color: white;
+            border-color: black;
+        }
+        #Test2 {
+            background-color: aqua;
+            margin-left: 12px;
+            border: 5px solid;
+            height: 100px;
+            width: 225px;
+        }
+        #TextTest2 {
+            font-size: xx-large;
+            text-align: center;
+            margin-top: 3px;
+        }
+        #Test2:hover {
+            background-color: darkcyan;
+            color: white;
+            border-color: black;
+        }
+        #Test3 {
+            background-color: aqua;
+            margin-left: 12px;
+            border: 5px solid;
+            height: 100px;
+            width: 225px;
+        }
+        #TextTest3 {
+            font-size: xx-large;
+            text-align: center;
+            margin-top: 3px;
+        }
+        #Test3:hover {
+            background-color: darkcyan;
+            color: white;
+            border-color: black;
+        }
+        #Test4 {
+            background-color: aqua;
+            margin-left: 12px;
+            border: 5px solid;
+            height: 100px;
+            width: 225px;
+        }
+        #TextTest4 {
+            font-size: xx-large;
+            text-align: center;
+            margin-top: 3px;
+        }
+        #Test4:hover {
+            background-color: darkcyan;
+            color: white;
+            border-color: black;
+        }
+        #Test5 {
+            background-color: aqua;
+            margin-left: 12px;
+            border: 5px solid;
+            height: 100px;
+            width: 225px;
+        }
+        #TextTest5 {
+            font-size: xx-large;
+            text-align: center;
+            margin-top: 3px;
+        }
+        #Test5:hover {
+            background-color: darkcyan;
+            color: white;
+            border-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Clicker Clicker - TODO REMAKE ENTIRE UI</h1>
+    <div id="sideBarRight">
+        <br>
+        <button id="Test1"><div id="TextTest1">Test - 0<br>Cost - 0</div></button>
+        <br><br>
+        <button id="Test2"><div id="TextTest2">Test - 0<br>Cost - 0</div></button>
+        <br><br>
+        <button id="Test3"><div id="TextTest3">Test - 0<br>Cost - 0</div></button>
+        <br><br>
+        <button id="Test4"><div id="TextTest4">Test - 0<br>Cost - 0</div></button>
+        <br><br>
+        <button id="Test5"><div id="TextTest5">Test - 0<br>Cost - 0</div></button>
+    </div>
+    <div id="ClicksText"><h2>Clicks: 0</h2></div>
+    <div id="Cps"><h2>Cps: 0</h2></div>
+    <img src="Clicker.png" width="250px" id="Clicker" onclick="ClickerClicked()">
+    <script>
+        let Clicks = 0;
+        let Cps = 0;
+
+        function UpdateClicks() {
+            console.log("Test");
+            Clicks+=Cps;
+            UpdateText();
+        }
+
+        function UpdateText() {
+            document.getElementById("ClicksText").innerHTML = "<h2>Clicks: " + Clicks + "</h2>";
+            document.getElementById("Cps").innerHTML = "<h2>Cps: " + Cps + "</h2>";
+        }
+
+        function ClickerClicked() {
+            Clicks++;
+            UpdateText();
+        }
+
+        setInterval(UpdateClicks, 1000);
+    </script>
+</body>
+</html>

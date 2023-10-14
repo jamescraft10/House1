@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Clicker</title>
+    <link rel="icon" href="logo.png" type="image/png"> <!--Logo-->
+    <style>
+        body {
+            color: black;
+            background-color: gray;
+        }
+        #Top {
+            text-align: center;
+            font-size: xx-large;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+        #Right {
+            position: absolute;
+            right: 10px;
+            top: 4px;
+            z-index: 100000;
+        }
+        #Left {
+            position: absolute;
+            left: 100px;
+            top: 75px;
+            z-index: 100000;
+        }
+        .Button {
+            font-size: larger;
+            background-color: aqua;
+            border: 4px solid;
+            width: 250px;
+            height: 100px;
+            margin-top: 5px;
+            border-radius: 10px;
+        }
+        .Button:hover {
+            background-color: darkcyan;
+            color: white;
+            border-color: black;
+        }
+        #UpdateLog {
+            border: 3px solid;
+            background-color: white;
+            height: 350px;
+            text-align: center;
+            border-radius: 9px;
+        }
+        .HowMuchBuy {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            margin-left: 10%;
+            transform: translate(-5% -3%);
+            margin-top: 3%;
+        }
+        .HowMuchBuy:hover {
+            background-color: darkcyan;
+        }
+        #HowMuchBuying {
+            text-align: center;
+        }
+        #Bottom {
+            position: absolute;
+            bottom: 2%;
+            left: 50%;
+            margin-left:-285px;
+        }
+        #Save {
+            width: 150px;
+            height: 50px;
+            border: 3px solid;
+            margin-left: 25px;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+        #SaveText {
+            text-align: center;
+            margin-top: 10px;
+        }
+        #Save:hover {
+            background-color: lightgray;
+        }
+        #Import {
+            width: 150px;
+            height: 50px;
+            border: 3px solid;
+            margin-left: 25px;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+        #ImportText {
+            text-align: center;
+            margin-top: 10px;
+        }
+        #Import:hover {
+            background-color: lightgray;
+        }
+        #Reset {
+            width: 150px;
+            height: 50px;
+            border: 3px solid;
+            margin-left: 25px;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+        #ResetText {
+            text-align: center;
+            margin-top: 10px;
+        }
+        #Reset:hover {
+            background-color: lightgray;
+        }
+        #SaveData {
+            margin-left: 5px;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div id="Top">
+        Clicker Clicker - Version 0.2
+        <br>
+        <a id="Clicks">Clicks - 0</a>
+        <br>
+        <a id="Cps">Cps - 0</a>
+    </div>
+    <div style="border: 3px solid; background-color: darkgray; width: 65px; height: 870px; position: absolute;">
+        <a href="https://jamescraft.w3spaces.com/" target="_blank">
+        <img src="logo.png" width="50px" style="margin-left: 7.5px; margin-top: 5px;">
+        </a>
+        <a href="https://discord.gg/NMYDEpDwvQ" target="_blank">
+        <img src="discord.png" width="50px" style="margin-left: 7.5px; margin-top: 5px;">
+        </a>
+    </div>
+    <div id="Right">
+        <button class="Button" onclick="ClickClicker()" id="Clicker">Clicker - 0<br>Cost 50<br>Cps - 1</button><br>
+        <button class="Button" onclick="ClickTripleClicker()" id="TripleClicker">Triple Clicker - 0<br>Cost 250<br>Cps - 3</button><br>
+        <button class="Button" onclick="ClickWorker()" id="Worker">Worker - 0<br>Cost 1000<br>Cps - 10</button><br>
+        <button class="Button" onclick="ClickWorker247()" id="Worker247">24/7 Worker - 0<br>Cost 3000<br>Cps - 30</button><br>
+        <button class="Button" onclick="ClickPortal()" id="Portal">Portal - 0<br>Cost 10000<br>Cps - 100</button><br>
+        <button class="Button" onclick="ClickTime()" id="Time">Time Machine - 0<br>Cost 100000<br>Cps - 300</button><br>
+        <button class="Button" onclick="ClickYou()" id="You">You - 0<br>Cost 1000000<br>Cps - 1,000</button><br>
+        <button class="HowMuchBuy" onclick="SelectionIs1()">1</button><button class="HowMuchBuy" onclick="SelectionIs10()">10</button><button class="HowMuchBuy" onclick="SelectionIs100()">100</button>
+        <h4 id="HowMuchBuying">You Are Buying 1 For Every Click</h4>
+    </div>
+    <div id="Left">
+        <img src="Clicker.png" style="width: 250px;" onclick="ClickCursor()">
+        <br><br><br>
+        <div id="UpdateLog">
+            <h3>Update Log</h3>
+            <h4>Ver 0.1 - Stupid Game I Made</h4>
+            <h4>Ver 0.2 - Added Saving And Importing Saves, <br>New Building(Time Machine), <br>Buying Mutible Things At Once, <br>And Update Log</h4>
+        </div>
+    </div>
+    <div id="Bottom">
+        <div style="border: 3px solid; width: 550px; height: 100px; background-color: white; border-radius: 10px;">
+            <button id="Save" onclick="Save()"><h2 id="SaveText">Export Save</h2></button>
+            <button id="Import" onclick="Import()"><h2 id="ImportText">Import Save</h2></button>
+            <input type="text" id="ImportTextBox" value="" style="position: absolute; top: 75px; left: 195px;"/>
+            <button id="Reset" onclick="Reset()"><h2 id="ResetText">Reset</h2></button>
+        </div>
+    </div>
+    <script>
+        let Clicks = 0;
+        let Clicker = 0;
+        let TripleClickers = 0;
+        let Worker = 0;
+        let Worker247 = 0;
+        let Portal = 0;
+        let Time = 0;
+        let You = 0;
+        let CPS = 0;
+
+        let ClickerCost = 50;
+        let TripleClickerCost = 250;
+        let WorkerCost = 1000;
+        let Worker247Cost = 3000;
+        let PortalCost = 10000;
+        let TimeCost = 100000;
+        let YouCost = 1000000;
+
+        let ClickerCostOne = 50;
+        let TripleClickerCostOne = 250;
+        let WorkerCostOne = 1000;
+        let Worker247CostOne = 3000;
+        let PortalCostOne = 10000;
+        let TimeCostOne = 100000;
+        let YouCostOne = 1000000;
+
+        let ClickerMoney;
+        let TripleClickerMoney;
+        let WorkerMoney;
+        let Worker247Money;
+        let PortalMoney;
+        let TimeMoney;
+        let YouMoney;
+
+        let HowMuchBuyIngCurrently = 1;
+        let SaveData;
+        let ImportData;
+        let Expire;
+
+        function Reset() {
+            ImportData = "";
+            ImportData = "Clicks = " + 0 + "; Clicker = " + 0 + ";  TripleClickers = " + 0 + "; Worker = " + 0 + "; Worker247 = " + 0+ "; Portal = " + 0 + "; Time = " + 0 + "; You = " + 0 + "; CPS = " + 0 + "; ClickerCost = " + 50 + "; TripleClickerCost = " + 250 + "; WorkerCost = " + 1000 + "; Worker247Cost = " + 3000 + "; PortalCost = " + 10000 + "; TimeCost = " + 100000 + "; YouCost = " + 1000000 + "; ";
+            eval(ImportData);
+            UpdateText();
+        }
+        function Import() {
+            ImportData = "";
+            ImportData = document.getElementById("ImportTextBox").value;
+            ImportData=unescape(ImportData);
+            eval(ImportData);
+            UpdateClicks();
+        }
+        function Save() {
+            SaveData = "";
+            HowMuchBuyIngCurrently = 1;
+            SaveData = "Clicks = " + Clicks + "; Clicker = " + Clicker + ";  TripleClickers = " + TripleClickers + "; Worker = " + Worker + "; Worker247 = " + Worker247 + "; Portal = " + Portal + "; Time = " + Time + "; You = " + You + "; CPS = " + CPS + "; ClickerCostOne = " + ClickerCostOne + "; TripleClickerCostOne = " + TripleClickerCostOne + "; WorkerCostOne = " + WorkerCostOne + "; Worker247CostOne = " + Worker247CostOne + "; PortalCostOne = " + PortalCostOne + "; TimeCostOne = " + TimeCostOne + "; YouCostOne = " + YouCostOne + "; ";
+            SaveData = escape(SaveData);
+            prompt("Copy To Clipboard:", SaveData);
+        }
+        function SelectionIs1() {
+            HowMuchBuyIngCurrently = 1;
+            ReworkPrices();
+        }
+        function SelectionIs10() {
+            HowMuchBuyIngCurrently = 10;
+            ReworkPrices();
+        }
+        function SelectionIs100() {
+            HowMuchBuyIngCurrently = 100;
+            ReworkPrices();
+        }
+        function ReworkPrices() {
+            ClickerCost=ClickerCostOne*HowMuchBuyIngCurrently;
+            TripleClickerCost=TripleClickerCostOne*HowMuchBuyIngCurrently;
+            WorkerCost=WorkerCostOne*HowMuchBuyIngCurrently;
+            Worker247Cost=Worker247CostOne*HowMuchBuyIngCurrently;
+            PortalCost=PortalCostOne*HowMuchBuyIngCurrently;
+            TimeCost=TimeCostOne*HowMuchBuyIngCurrently;
+            YouCost=YouCostOne*HowMuchBuyIngCurrently;
+            UpdateText();
+        }
+        function UpdateClicks() {
+            ClickerMoney = (Clicker * 1);
+            TripleClickerMoney = (TripleClickers * 3);
+            WorkerMoney = (Worker * 10);
+            Worker247Money = (Worker247 * 30);
+            PortalMoney = (Portal * 100);
+            TimeMoney = (Time * 300);
+            YouMoney = (You * 1000);
+            CPS = ClickerMoney + TripleClickerMoney + WorkerMoney + Worker247Money + PortalMoney + TimeMoney + YouMoney;
+            Clicks+=CPS;
+            UpdateText();
+        }
+        function UpdateText() {
+            document.getElementById("Cps").innerHTML = "Cps - " + CPS;
+            document.getElementById("HowMuchBuying").innerHTML = "You Are Buying " + HowMuchBuyIngCurrently + " For Every Click";
+            document.getElementById("Clicks").innerHTML = "Clicks - " + Clicks;
+            document.getElementById("Clicker").innerHTML = "Clicker - " + Clicker + "<br>Cost " + ClickerCost + "<br>Cps - 1";
+            document.getElementById("TripleClicker").innerHTML = "Triple Clicker - " + TripleClickers + "<br>Cost " + TripleClickerCost + "<br>Cps - 3";
+            document.getElementById("Worker").innerHTML = "Worker - " + Worker + "<br>Cost " + WorkerCost + "<br>Cps - 10";
+            document.getElementById("Worker247").innerHTML = "24/7 Worker - " + Worker247 + "<br>Cost " + Worker247Cost + "<br>Cps - 30";
+            document.getElementById("Portal").innerHTML = "Portal - " + Portal + "<br>Cost " + PortalCost + "<br>Cps - 100";
+            document.getElementById("Time").innerHTML = "Time Machine - " + Time + "<br>Cost " + TimeCost + "<br>Cps - 300";
+            document.getElementById("You").innerHTML = "You - " + You + "<br>Cost " + YouCost + "<br>Cps - 1,000";
+        }
+        function ClickCursor() {
+            Clicks++;
+            UpdateText();
+        }
+        function ClickClicker() {
+            if(Clicks>=ClickerCost) {
+                Clicker+=HowMuchBuyIngCurrently;
+                Clicks-=ClickerCost;
+                ClickerCost*=1.2;
+                ClickerCostOne*=1.2;
+                ClickerCost = Math.floor(ClickerCost);
+                ClickerCostOne = Math.floor(ClickerCostOne);
+            }
+            UpdateText();
+        }
+        function ClickTripleClicker() {
+            if(Clicks>=TripleClickerCost) {
+                TripleClickers+=HowMuchBuyIngCurrently;
+                Clicks-=TripleClickerCost;
+                TripleClickerCost*=1.2;
+                TripleClickerCostOne*=1.2;
+                TripleClickerCost = Math.floor(TripleClickerCost);
+                TripleClickerCostOne = Math.floor(TripleClickerCostOne);
+            }
+            UpdateText();
+        }
+        function ClickWorker() {
+            if(Clicks>=WorkerCost) {
+                Worker+=HowMuchBuyIngCurrently;
+                Clicks-=WorkerCost;
+                WorkerCost*=1.2;
+                WorkerCostOne*=1.2;
+                WorkerCost = Math.floor(WorkerCost);
+                WorkerCostOne = Math.floor(WorkerCostOne);
+            }
+            UpdateText();
+        }
+        function ClickWorker247() {
+            if(Clicks>=Worker247Cost) {
+                Worker247+=HowMuchBuyIngCurrently;
+                Clicks-=Worker247Cost;
+                Worker247Cost*=1.2;
+                Worker247CostOne*=1.2;
+                Worker247Cost = Math.floor(Worker247Cost);
+                Worker247CostOne = Math.floor(Worker247CostOne);
+            }
+            UpdateText();
+        }
+        function ClickPortal() {
+            if(Clicks>=PortalCost) {
+                Portal+=HowMuchBuyIngCurrently;
+                Clicks-=PortalCost;
+                PortalCost*=1.2;
+                PortalCostOne*=1.2;
+                PortalCost = Math.floor(PortalCost);
+                PortalCostOne = Math.floor(PortalCostOne);
+            }
+            UpdateText();
+        }
+        function ClickTime() {
+            if(Clicks>=TimeCost) {
+                Time+=HowMuchBuyIngCurrently;
+                Clicks-=TimeCost;
+                TimeCost*=1.2;
+                TimeCostOne*=1.2;
+                TimeCost = Math.floor(TimeCost);
+                TimeCostOne = Math.floor(TimeCostOne);
+            }
+            UpdateText();
+        }
+        function ClickYou() {
+            if(Clicks>=YouCost) {
+                You+=HowMuchBuyIngCurrently;
+                Clicks-=YouCost;
+                YouCost*=1.2;
+                YouCostOne*=1.2;
+                YouCost = Math.floor(YouCost);
+                YouCostOne = Math.floor(YouCostOne);
+            }
+            UpdateText();
+        }
+
+        setInterval(UpdateClicks, 1000);
+    </script>
+</body>
+</html>

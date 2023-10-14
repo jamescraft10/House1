@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escaper</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escaper</h1>
+    <input type="text" id="EscapeText" value="">
+    <br><br>
+    <button onclick="Escape()"><h2>Escape Text</h2></button>
+    <br><br>
+    <input type="text" id="UnEscapedText" value="">
+    <br><br>
+    <button onclick="UnEscape()"><h2>Unescape Text</h2></button>
+    <script>
+        let EscapedText;
+        let UnEscapedText;
+
+        function Escape() {
+            EscapedText = document.getElementById("EscapeText").value;
+            EscapedText = escape(EscapedText);
+            prompt("Escaped Text:", EscapedText);
+        }
+        function UnEscape() {
+            UnEscapedText = document.getElementById("UnEscapedText").value;
+            UnEscapedText = unescape(UnEscapedText);
+            prompt("Unescaped Text:", UnEscapedText);
+        }
+    </script>
+</body>
+</html>

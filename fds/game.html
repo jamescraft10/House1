@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<body>
+    <script type="module">
+        //Import Engine
+        import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
+
+        // Start kaboom with default options (will create a fullscreen canvas under <body>)
+        kaboom()
+        /*
+        let playerX = 0;
+        let playerY = 0;
+
+        const player = add([
+            sprite("bean"),
+            pos(playerX, playerY),
+        ])
+
+        onKeyPress("D", () => {
+            playerX+=2;
+        })
+        loadSprite("bean", "sprites/bean.png")
+        */
+        const player = add([
+            // List of components, each offers a set of functionalities
+            sprite("bean"),
+            pos(100, 200),
+            area(),
+            body(),
+            health(8),
+            // Plain strings are tags, a quicker way to let us define behaviors for a group
+            "player",
+            "friendly",
+            // Components are just plain objects, you can pass an object literal as a component.
+            {
+                dir: LEFT,
+                dead: false,
+                speed: 240,
+            },
+        ])
+        loadSprite("bean", "sprites/bean.png");
+        // .jump is provided by body()
+        const label = make([
+            text("oh hi"),
+            color(0, 0, 255),
+        ])
+        onKeyPress("space", () => {
+            player.jump();
+            console.log("hi");
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Notation</title>
+    <style>
+        body {
+            margin-top: 5%;
+            background-color: gray;
+        }
+        #E {
+            margin-left: 50%;
+            transform: translate(-50%, 0%);
+            text-align: center;
+        }
+        #Button {
+            width: 125px;
+            height: 50px;
+            background-color: aqua;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div id="E">
+    <h1>X↑Y</h1>
+    <h2>How Many ↑</h2>
+    <input type="text" value="" id="N"/><br>
+    <h2>What X Equals</h2>
+    <input type="text" value="" id="X"/><br>
+    <h2>What Y Equals</h2>
+    <input type="text" value="" id="Y"/><br>
+    <br>
+    <button id="Button" onclick="Done()">Done</button>
+    </div>
+    <script>
+        let X = 0;
+        let Y = 0;
+        let N = 0;
+        let A = 0;
+        let ArrowBool = false;
+        let ArrowString = "";
+        let NumberString = "";
+
+        function Done() {
+            //  X↑↑Y
+            //  X↑Y Times
+            //  X↑↑↑Y
+            //  X↑↑Y↑↑Y Y Times
+            //  X↑Y↑Y↑Y
+            //  3↑↑↑3 = 3↑↑3↑↑3 = 3↑↑7625597484987
+            X = document.getElementById("X").value;
+            Y = document.getElementById("Y").value;
+            N = document.getElementById("N").value;
+            ArrowBool = true;
+            for(let i = 0; i>=N; i++) {
+                ArrowString = ArrowString + "1";
+            }
+            NumberString = X + ArrowString + Y;
+            console.log(NumberString);
+        }
+    </script>
+</body>
+</html>
