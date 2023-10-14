@@ -1,0 +1,2 @@
+int Variable: int = 15;
+return 123;
