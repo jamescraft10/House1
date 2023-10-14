@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <style>
+        body {
+            background-color: #5A5A5A;
+            color: white;
+            font-family: 'Lato', sans-serif;
+        }
+        #Message {
+            position: absolute;
+            border-radius: 10px;
+            background-color: lightgray;
+            color: black;
+            width: 50%;
+            height: 2%;
+            margin-top: 30%;
+            margin-left: 50%;
+            transform: translate(-50%, -30%);
+        }
+        .Messages {
+            margin-top: 2%;
+            transform: translate(0%, -2%);
+        }
+    </style>
+</head>
+<body>
+    <div class="Messages">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, ea dicta? Tenetur asperiores minus recusandae, nostrum quibusdam eos voluptatem sapiente ipsam debitis? Id autem ullam corporis quod pariatur explicabo! Ipsum!</div>
+    <div class="Messages">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, ea dicta? Tenetur asperiores minus recusandae, nostrum quibusdam eos voluptatem sapiente ipsam debitis? Id autem ullam corporis quod pariatur explicabo! Ipsum!</div>
+    <div class="Messages">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, ea dicta? Tenetur asperiores minus recusandae, nostrum quibusdam eos voluptatem sapiente ipsam debitis? Id autem ullam corporis quod pariatur explicabo! Ipsum!</div>
+    <div class="Messages">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, ea dicta? Tenetur asperiores minus recusandae, nostrum quibusdam eos voluptatem sapiente ipsam debitis? Id autem ullam corporis quod pariatur explicabo! Ipsum!</div>
+
+    <form method="post" action="/Sent">
+        <input type="text" name="Message" placeholder="Message" autocomplete="off" id="Message"/>
+    </form>
+</body>
+</html>

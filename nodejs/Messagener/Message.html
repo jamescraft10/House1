@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+</head>
+<body>
+    <input type="text" id="textBox"/>
+    <button onclick="submit()">Send</button>
+
+    <script>
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            var charCode = evt.keyCode || evt.which;
+            if(charCode == 13) {
+                submit();
+            }
+        }
+        function submit() {
+            text =  document.getElementById("textBox").value;
+            console.log(text);
+            window.location.href = "http://localhost:8080/" + text;
+        }
+    </script>
+</body>
+</html>

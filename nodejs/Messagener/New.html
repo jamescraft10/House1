@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <style>
+        body {
+            background-color: #5A5A5A;
+            color: white;
+            font-family: 'Lato', sans-serif;
+        }
+        #Message {
+            position: sticky;
+            border-radius: 10px;
+            background-color: lightgray;
+            color: black;
+            width: 50%;
+            height: 2%;
+        }
+        .Messages {
+            margin-bottom: 2%;
+            transform: translate(0%, 2%);
+        }
+    </style>
+</head>
+<body>
+    <form method="get">
+        <input type="text" name="Message" placeholder="Message" autocomplete="off" id="Message"/>
+    </form>
+
+    <script>
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            var charCode = evt.keyCode || evt.which;
+            if(charCode == 13) {
+                submit();
+            }
+        }
+        function submit() {
+            text =  document.getElementById("Message").value;
+            console.log(text);
+            window.location.href = "http://localhost:8080/" + text;
+        }
+    </script>
+</body>
+</html>
