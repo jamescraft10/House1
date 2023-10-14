@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Found</title>
+    <style>
+        body {
+            background-color: #1B1B1E;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        #Text404 {
+            position: absolute;
+            color: white;
+            margin-left: 50%;
+            margin-top: 3%;
+            transform: translate(-50%, 0%);
+        }
+        #Home {
+            position: absolute;
+            margin-left: 50%;
+            margin-top: 7%;
+            transform: translate(-50%, 0%);
+            width: 10%;
+            height: 5%;
+            border-radius: 5px;
+            background-color: #919CB4;
+        }
+        #Home:hover {
+            animation-name: ColorChangeButton1;
+            animation-duration: 400ms;
+            animation-delay: 20ms;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes ColorChangeButton1 {
+            from {
+                color: #1A1F16;
+                background-color: #919CB4;
+                text-shadow: 0px 0px 0px #1B1B1E;
+            }
+            to {
+                color: whitesmoke;
+                background-color: #58A4B0;
+                text-shadow: 0px 0px 10px white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="Text404">404 - Not Found</h1>
+    <button onclick="Rediret()" id="Home">Home Page</button>
+    <script>
+        function Rediret() {
+            window.location.href = "./";
+        }
+    </script>
+</body>
+</html>

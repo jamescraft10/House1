@@ -1,0 +1,29 @@
+#Animation1 {
+    width:250px;
+    height: 250px;
+    background: blueviolet;
+    text-align: center;
+    font-size: 255;
+    animation: slide1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+#Animation1:hover {
+    width:250px;
+    height: 250px;
+    background: blueviolet;
+    text-align: center;
+    font-size: 255;
+    animation: slide1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    background-color: aqua;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slide1{
+    from{margin-left: 100%}
+    to{margin-left: 0%;}
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Chat</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #1B1B1E;
+            color: white;
+        }
+        #Title {
+            position: absolute;
+            margin-left: 50%;
+            margin-top: 5%;
+            transform: translate(-50%, 0%);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="Title">Jam Chat Home Page</h1>
+    <input type="text" placeholder="Join Lobby" id="Join"/>
+    <button onclick="JoinLobby()">Join</button>
+    <script>
+        function JoinLobby() {
+            var Name = document.getElementById('Join').value;
+            window.location.href = `./${Name}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1B1B1E;
+            font-family: sans-serif;
+        }
+        #Title {
+            color: white;
+            font-size: 500%;
+            text-shadow: 0px 0px 10px white;
+            margin-left: 50%;
+            transform: translate(-50%, 0%);
+            margin-top: 5%;
+            position: absolute;
+        }
+        #JamChatButton {
+            position: absolute;
+            border: 3px solid #1B1B1E;
+            width: 10%;
+            height: 10%;
+            margin-left: 50%;
+            margin-top: 12%;
+            transform: translate(-50%, 0%);
+            border-radius: 10px;
+            background-color: #919CB4;
+            color: #1B1B1E;
+        }
+        #JamChatButton:hover {
+            animation-name: ColorChangeButton1;
+            animation-duration: 400ms;
+            animation-delay: 20ms;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes ColorChangeButton1 {
+            from {
+                color: #1A1F16;
+                background-color: #919CB4;
+                text-shadow: 0px 0px 0px #1B1B1E;
+            }
+            to {
+                color: whitesmoke;
+                background-color: #58A4B0;
+                text-shadow: 0px 0px 10px white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="Title">Jam Inc.</div>
+    <button id="JamChatButton" onclick="JamChatButtonClick()">Jam Chat</button>
+    <script>
+        function JamChatButtonClick() {
+            window.location.href = "./JamChatHome";
+        }
+    </script>
+</body>
+</html>
