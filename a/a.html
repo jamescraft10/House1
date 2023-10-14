@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Iframe with Top Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #iframeContainer {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #topBar {
+            width: 100%;
+            height: 20px;
+            background-color: lightgray;
+            cursor: move;
+        }
+
+        #draggableIframe {
+            width: 100%;
+            height: calc(100% - 20px);
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="urlInput" placeholder="Enter URL">
+        <button onclick="loadIframe()">Load</button>
+    </div>
+
+    <div id="iframeContainer">
+        <div id="topBar"></div>
+        <iframe id="draggableIframe" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        var iframeContainer = document.getElementById('iframeContainer');
+        var topBar = document.getElementById('topBar');
+        var iframe = document.getElementById('draggableIframe');
+        var urlInput = document.getElementById('urlInput');
+        var offsetX, offsetY, isDragging = false;
+
+        function loadIframe() {
+            var url = urlInput.value;
+            if (url.trim() !== '') {
+                iframe.src = url;
+            }
+        }
+
+        function onMouseDown(event) {
+            isDragging = true;
+            offsetX = event.clientX - iframeContainer.getBoundingClientRect().left;
+            offsetY = event.clientY - iframeContainer.getBoundingClientRect().top;
+        }
+
+        function onMouseMove(event) {
+            if (isDragging) {
+                var x = event.clientX - offsetX;
+                var y = event.clientY - offsetY;
+                iframeContainer.style.left = x + 'px';
+                iframeContainer.style.top = y + 'px';
+            }
+        }
+
+        function onMouseUp() {
+            isDragging = false;
+        }
+
+        topBar.addEventListener('mousedown', onMouseDown);
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever | Portal</title>
+    <link rel="icon" href="./Image.png">
+</head>
+<body>
+    <button onclick="launchab()">Launch Website</button>
+
+    <script>
+        function launchab() {
+            var url = "https://" + prompt("Whats the URL?");
+            const tab = window.open('about:blank', '_blank');
+            const iframe = tab.document.createElement('iframe');
+            const stl = iframe.style;
+            stl.border = stl.outline = 'none';
+            stl.width = '100vw';
+            stl.height = '100vh';
+            stl.position = 'fixed';
+            stl.left = stl.right = stl.top = stl.bottom = '0';
+            iframe.src = url; // Update this line with the desired URL
+            tab.document.body.appendChild(iframe);
+            window.parent.window.location.replace(localStorage.getItem("panicurl") || 'https://classroom.google.com/h');
+        }
+    </script>
+</body>
+</html>
